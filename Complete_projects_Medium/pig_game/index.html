@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    @media (max-width:45em) {
+      html {
+        font-size: 50%;
+      }
+
+      .absolute {
+        transform: scale(0.3);
+      }
+    }
+
+    body {
+      overflow: hidden;
+      background: rgb(249, 182, 78);
+      background: radial-gradient(circle, rgba(249, 182, 78, 1) 0%, rgba(252, 70, 107, 1) 100%);
+      font-family: 'Roboto', sans-serif;
+
+      position: relative;
+    }
+
+
+    .container {
+      max-width: 120rem;
+      margin: 0 auto;
+      padding: 10rem 5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+
+    }
+
+    .flex {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+
+    }
+
+    .flex-hor {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+
+
+    }
+
+    .dice-container {
+      transition: all 300ms;
+      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .player {
+      height: 70vh;
+      padding-top: 10em;
+      background-color: rgba(255, 162, 181, 0.6);
+
+    }
+
+    .player-dark-background {
+      background-color: rgba(255, 162, 181, 0.9) !important;
+    }
+
+
+    .player--1 {
+      border-top-left-radius: 2rem;
+      border-bottom-left-radius: 2rem;
+    }
+
+    .player--2 {
+      border-top-right-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+    .player-title {
+      font-size: 3.8rem;
+    }
+
+    .player-score {
+      font-size: 6.4rem;
+      font-weight: 500;
+      color: rgb(252, 70, 107);
+    }
+
+    .player-current-box {
+      margin-top: 10rem;
+      gap: 1rem;
+
+      background-color: rgb(252, 70, 107);
+      padding: 1.5rem 5rem;
+      border-radius: 1rem;
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.611)
+    }
+
+
+    .player-current-score {
+      font-size: 3rem;
+    }
+
+    .btn {
+      border: none;
+      padding: 1.2rem 3.2rem;
+      border-radius: 20rem;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: all 300ms;
+      background-color: rgba(255, 255, 255, 0.617);
+    }
+
+    .btn:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn--new-game {
+      margin-bottom: 3rem;
+    }
+
+    .btn--roll-dice {
+      margin-top: 5rem;
+    }
+
+    .icon {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container grid">
+
+    <div class="player player--1 flex player-dark-background">
+
+      <h2 class="player-title">PLAYER 1</h2>
+      <p class="player-score player-score--1">0</p>
+
+      <div class="flex player-current-box player-current-box--1">
+
+        <h4>CURRENT</h4>
+        <p class="player-current-score player-current-score--1">0</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="player player--2 flex">
+
+      <h2 class="player-title">PLAYER 2</h2>
+      <p class="player-score player-score--2">0</p>
+
+      <div class="flex player-current-box player-current-box--2">
+
+        <h4>CURRENT</h4>
+        <p class="player-current-score player-current-score--2">0</p>
+
+      </div>
+    </div>
+
+    <div class="flex absolute">
+      <button class="btn btn--new-game flex-hor"><span class="icon">🔃</span> NEW GAME</button>
+      <div class="dice-container"><img src="./img/dice-six-faces-one.svg"
+             class="dice hidden"
+             width="150rem"
+             height="150rem"> </div>
+      <button class="btn btn--roll-dice flex-hor"><span class="icon">🎲 </span> ROLL DICE</button>
+      <button class="btn btn--hold flex-hor"><span class="icon">🔽</span> HOLD</button>
+    </div>
+
+    <script src="
+           ./script.js">
+          </script>
+</body>
+
+</html>
